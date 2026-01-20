@@ -1,0 +1,5 @@
+Network Issue SOP
+1. Check LAN cable connection.
+2. Verify IP address with ipconfig.
+3. Restart router or switch.
+4. Escalate if still no connectivity.

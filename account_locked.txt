@@ -1,0 +1,6 @@
+Blue Screen Error SOP
+1. Note the STOP code and error message.
+2. Boot into Safe Mode and check recent changes.
+3. Run memory and disk diagnostics.
+4. Update or roll back drivers.
+5. Escalate if hardware fault suspected.

@@ -1,0 +1,5 @@
+Desktop Slowness SOP
+1. Check CPU/RAM usage in Task Manager.
+2. Clear temporary files.
+3. Disable startup programs.
+4. Run antivirus scan.
