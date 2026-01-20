@@ -3,7 +3,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import pickle
 import os
-
+ 
 # --- Load SOP files dynamically ---
 def load_sops():
     sops = {}
@@ -12,9 +12,9 @@ def load_sops():
             with open(filename, "r") as f:
                 sops[filename.replace(".txt", "")] = f.read()
     return sops
-
+ 
 sops = load_sops()
-
+ 
 # --- Train or load TF-IDF vectorizer ---
 try:
     with open("vectorizer.pkl", "rb") as f:
@@ -30,7 +30,7 @@ except:
         pickle.dump(vectorizer, f)
     with open("sop_matrix.pkl", "wb") as f:
         pickle.dump(X, f)
-
+ 
 # --- Function to find SOP ---
 def find_sop(user_input):
     user_vec = vectorizer.transform([user_input])
@@ -38,16 +38,16 @@ def find_sop(user_input):
     best_match = similarities.argmax()
     sop_name = list(sops.keys())[best_match]
     return sop_name, sops[sop_name]
-
+ 
 # --- Streamlit UI ---
 st.title("Krishnendu's Help Support (TF-IDF Prototype)")
-
+ 
 # Text input
 user_input = st.text_input("Describe your issue:")
-
+ 
 # Dropdown selection
 selected_sop = st.selectbox("Or choose SOP directly:", ["-- Select SOP --"] + list(sops.keys()))
-
+ 
 # Logic
 if user_input:
     sop_name, sop_text = find_sop(user_input)
